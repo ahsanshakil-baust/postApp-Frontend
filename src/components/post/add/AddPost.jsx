@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Message from "../../common/Message";
 import { FormWrapper, Form } from "./style";
+import ConfirmBox from "../../common/ConfirmBox";
 
 const AddPost = ({ setShow }) => {
     const [post, setPost] = useState({
@@ -26,7 +27,7 @@ const AddPost = ({ setShow }) => {
     return (
         <FormWrapper>
             <i onClick={() => setShow(false)} className="fa-solid fa-xmark"></i>
-            <div className="heading">New Post</div>
+            <div className="post__heading">New Post</div>
 
             <Message
                 error={error}
@@ -37,6 +38,7 @@ const AddPost = ({ setShow }) => {
             <Form onSubmit={handleSubmit}>
                 <input
                     type="text"
+                    onChange={handleChange}
                     placeholder="Title :"
                     name="title"
                     value={post.title}
@@ -45,7 +47,7 @@ const AddPost = ({ setShow }) => {
                     value={post.description}
                     onChange={handleChange}
                     name="description"
-                    placeholder="Description:"
+                    placeholder="Description :"
                 ></textarea>
 
                 <button type="submit">Submit</button>

@@ -88,10 +88,6 @@ export const CommentHead = styled.div`
         }
     }
 
-    .comment_head_right {
-        cursor: pointer;
-    }
-
     @media screen and (max-width: 420px) {
         padding: 4px 8px;
 
@@ -118,6 +114,10 @@ export const CommentTitle = styled.div`
         &:first-child {
             margin-right: 4px;
         }
+    }
+
+    a {
+        color: #333;
     }
 
     @media screen and (max-width: 420px) {
@@ -152,4 +152,32 @@ export const NewPost = styled.div`
     cursor: pointer;
     border-radius: 0.25rem;
     font-weight: 500;
+
+    @media screen and (max-width: 480px) {
+        padding: 0.5rem 1rem;
+        font-size: 12px;
+    }
+`;
+
+export const CommentFooter = styled.div`
+    background-color: #ffffff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    i {
+        cursor: pointer;
+    }
+
+    i {
+        &:first-child {
+            margin-right: 20px;
+            color: green;
+        }
+
+        &:last-child {
+            color: red;
+        }
+    }
 `;

@@ -8,27 +8,36 @@ export const FormWrapper = styled.div`
     background-color: #fff;
     border: 1px solid #03810b5d;
     border-radius: 0.5rem;
-    position: relative;
-    padding: 4rem;
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 20px 40px;
 
-    .heading {
-        font-size: 2rem;
-        padding: 1rem 0;
+    @media screen and (max-width: 480px) {
+        padding: 10px 20px;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .post__heading {
+        font-size: 25px;
+        padding: 10px 0;
     }
 
     i {
-        font-size: 3rem;
+        font-size: 30px;
         position: absolute;
-        right: -4rem;
-        top: -4rem;
-        color: #fff;
+        right: 10px;
+        top: 10px;
+        color: red;
         cursor: pointer;
 
         @media screen and (max-width: 480px) {
             color: #e74e53;
-            right: 1rem;
-            top: 1rem;
-            font-size: 2.5rem;
+            right: 10px;
+            top: 10px;
+            font-size: 25px;
         }
     }
 `;
@@ -41,50 +50,36 @@ export const Form = styled.form`
 
     input,
     textarea {
-        width: 40rem;
-        padding: 1rem 1.5rem;
-        margin: 1rem 0;
-        font-size: 1.5rem;
+        width: 500px;
+        padding: 8px 10px;
+        margin: 10px 0;
+        font-size: 15px;
         border: 1px solid #03810b5d;
+        border-radius: 5px;
+
+        &:focus {
+            outline: 1px solid #03810b5d;
+        }
 
         &::placeholder {
-            font-size: 1.5rem;
+            font-size: 15px;
         }
 
         @media screen and (max-width: 576px) {
-            width: 37rem;
+            width: 370px;
         }
 
         @media screen and (max-width: 480px) {
-            width: 35rem;
+            width: 320px;
         }
 
         @media screen and (max-width: 376px) {
-            width: 34rem;
+            width: 300px;
         }
     }
 
-    input[type="file"] {
-        font-size: 1.5rem;
-
-        &::file-selector-button {
-            cursor: pointer;
-        }
-    }
-
-    input[type="file"]::file-selector-button {
-        margin-right: 20px;
-        border: none;
-        background: #3ca743;
-        padding: 10px 20px;
-        border-radius: 10px;
-        color: #fff;
-        cursor: pointer;
-        transition: background 0.2s ease-in-out;
-    }
-
-    input[type="file"]::file-selector-button:hover {
-        background: #3ca743be;
+    textarea {
+        height: 250px;
     }
 
     & > button {
@@ -93,7 +88,7 @@ export const Form = styled.form`
         color: #fff;
         padding: 8px 20px;
         border-radius: 3px;
-        font-size: 1.5rem;
-        margin-top: 2rem;
+        font-size: 15px;
+        margin-top: 20px;
     }
 `;
