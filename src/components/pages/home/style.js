@@ -22,6 +22,7 @@ export const CommentBox = styled.div`
     display: flex;
     justify-content: center;
     width: 100%;
+    margin: 10px 0;
 
     .comment_img {
         width: 40px;

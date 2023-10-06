@@ -1,4 +1,5 @@
-import React, { useContext } from "react";
+import axios from "axios";
+import React, { useContext, useEffect, useState } from "react";
 
 const DataContext = React.createContext();
 
@@ -7,5 +8,33 @@ export const useAuth = () => {
 };
 
 export const DataProvider = ({ children }) => {
-    return <DataContext.Provider>{children}</DataContext.Provider>;
+    const [userDetails, setUserDetails] = useState({});
+
+    useEffect(() => {
+        const getUser = async () => {
+            try {
+                const response = await axios.get("/user", {
+                    headers: {
+                        "Content-type": "application/json",
+                    },
+                });
+
+                setUserDetails(response.data);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+
+        getUser();
+    }, []);
+
+    return (
+        <DataContext.Provider
+            value={{
+                userDetails,
+            }}
+        >
+            {children}
+        </DataContext.Provider>
+    );
 };

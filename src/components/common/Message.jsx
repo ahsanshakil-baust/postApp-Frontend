@@ -4,10 +4,10 @@ import styled from "styled-components";
 const Alert = styled.div`
     position: sticky,
     right: 0,
-    top: -3rem,
+    top: -30px,
     width: 100%,
-    fontSize: 1.6rem,
-    padding: 1rem 2rem,
+    fontSize: 12px !important,
+    padding: 5px 10px,
     textAlign: center,
     zIndex: 10,
 `;
@@ -26,7 +26,7 @@ const Message = ({ error, processingMsg, successMsg }) => {
                     {processingMsg}
                     <div
                         style={{
-                            marginLeft: "1rem",
+                            marginLeft: "10px",
                         }}
                         className="spinner-border text-warning"
                         role="status"

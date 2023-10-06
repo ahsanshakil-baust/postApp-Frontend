@@ -9,13 +9,27 @@ import {
 
 import ConfirmBox from "../../../common/ConfirmBox";
 import { NavLink } from "react-router-dom";
+import { deletePost } from "../api";
 
-const CommentDiv = ({ user, setSuccessMsg, setProcessingMsg, setError }) => {
+const CommentDiv = ({
+    user,
+    setSuccessMsg,
+    setProcessingMsg,
+    setError,
+    name,
+    title,
+    desc,
+    id,
+    time,
+}) => {
     const [alert, setAlert] = useState(false);
     const [deleteId, setDeleteId] = useState("");
 
+    const [errorObj, setErrorObj] = useState({});
+
     const handleDelete = (id, setSuccessMsg, setError, setProcessingMsg) => {
-        console.log(id);
+        deletePost(id, setSuccessMsg, setError, setProcessingMsg);
+        window.location.reload();
     };
     return (
         <CommentBox>
@@ -26,31 +40,24 @@ const CommentDiv = ({ user, setSuccessMsg, setProcessingMsg, setError }) => {
             <div className="comment_body">
                 <CommentHead>
                     <div className="comment_head_left">
-                        <div className="commeter_name">saidur rahman</div>
+                        <div className="commeter_name">{name}</div>
                         <div className="commented_time">1 min ago</div>
                     </div>
                 </CommentHead>
 
                 <CommentTitle>
                     <span> Title:</span>
-                    <NavLink to="#">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing
-                        elit. Dolorum, quia.
-                    </NavLink>
+                    <NavLink to="#">{title}</NavLink>
                 </CommentTitle>
 
-                <CommentMessage>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Fugiat, neque. Quas officiis quos hic ab voluptate quae
-                    recusandae sapiente vitae!
-                </CommentMessage>
+                <CommentMessage>{desc}</CommentMessage>
 
                 <CommentFooter>
                     <i className="fa-regular fa-pen-to-square" title="edit"></i>
                     <i
                         onClick={() => {
                             setAlert(true);
-                            setDeleteId(1);
+                            setDeleteId(id);
                         }}
                         className="fa-solid fa-trash-can"
                         title="delete"

@@ -1,6 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import { useAuth } from "../context/Context";
+import { logOut } from "./api";
 
 const Ul = styled.ul`
     list-style-type: none;
@@ -10,6 +12,7 @@ const Ul = styled.ul`
     justify-content: center;
     align-items: center;
     height: 80px;
+    width: 100vw;
     background-color: #fff;
 
     li {
@@ -18,6 +21,8 @@ const Ul = styled.ul`
 `;
 
 const Navbar = () => {
+    const { userDetails } = useAuth();
+
     return (
         <Ul>
             <li>
@@ -26,6 +31,24 @@ const Navbar = () => {
             <li>
                 <NavLink to="/about">About</NavLink>
             </li>
+            {!userDetails.user && (
+                <li>
+                    <NavLink to="/signup">SignUp</NavLink>
+                </li>
+            )}
+            {!userDetails.user && (
+                <li>
+                    <NavLink to="/login">Login</NavLink>
+                </li>
+            )}
+
+            {userDetails.user && <li>{userDetails.user.username}</li>}
+
+            {userDetails.user && (
+                <li style={{ cursor: "pointer" }} onClick={logOut}>
+                    logout
+                </li>
+            )}
         </Ul>
     );
 };
