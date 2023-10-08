@@ -9,4 +9,5 @@ body {
     background-color: #dcdcdc;
     width: 100vw;
     max-width: 1900px;
+    overflow-x: hidden;
 }

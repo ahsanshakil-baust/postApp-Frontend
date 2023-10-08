@@ -1,15 +1,16 @@
 import React, { useState } from "react";
-import Message from "../../common/Message";
+import Message from "../../../../common/Message";
 import { FormWrapper, Form } from "./style";
-import { addNewPost } from "./api";
-import { useAuth } from "../../context/Context";
+import { addNewPost, UpdatePost } from "./api";
+import { useAuth } from "../../../../context/Context";
 
-const AddPost = ({ setShow }) => {
+const AddPost = ({ setShow, title, desc, id }) => {
     const { userDetails } = useAuth();
     const [post, setPost] = useState({
         user: userDetails.user.username,
-        title: "",
-        description: "",
+        title: title ? title : "",
+        description: desc ? desc : "",
+        email: userDetails.user.email,
         errorObj: {},
     });
 
@@ -25,7 +26,12 @@ const AddPost = ({ setShow }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        addNewPost(post, setPost, setProcessingMsg, setSuccessMsg);
+
+        if (title && desc && id) {
+            UpdatePost(post, id, setPost, setProcessingMsg, setSuccessMsg);
+        } else {
+            addNewPost(post, setPost, setProcessingMsg, setSuccessMsg);
+        }
     };
 
     return (

@@ -8,7 +8,7 @@ export const FormWrapper = styled.div`
     background-color: #fff;
     border: 1px solid #03810b5d;
     border-radius: 0.5rem;
-    position: absolute;
+    position: fixed;
     top: 200px;
     left: 50%;
     transform: translateX(-50%);

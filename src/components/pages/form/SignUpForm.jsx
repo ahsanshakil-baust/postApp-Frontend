@@ -112,7 +112,7 @@ const SignUpForm = () => {
     const submitHandler = (e) => {
         e.preventDefault();
 
-        signUp(user, setUser);
+        signUp(user, setUser, setProcessingMsg, setSuccessMsg);
     };
 
     return (

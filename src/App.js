@@ -7,6 +7,9 @@ import Navbar from "./components/navbar/Navbar";
 const LazyHome = lazy(() => import("./components/pages/home/Home"));
 const LazySignUp = lazy(() => import("./components/pages/form/SignUpForm"));
 const LazyLogin = lazy(() => import("./components/pages/form/LoginForm"));
+const LazyPostView = lazy(() =>
+    import("./components/pages/home/singlePost/PostView")
+);
 
 const App = () => {
     return (
@@ -17,6 +20,7 @@ const App = () => {
                     <Route path="/" element={<LazyHome />} />
                     <Route path="/signup" element={<LazySignUp />} />
                     <Route path="/login" element={<LazyLogin />} />
+                    <Route path="/view-post/:id" element={<LazyPostView />} />
                 </Routes>
             </Suspense>
         </BrowserRouter>

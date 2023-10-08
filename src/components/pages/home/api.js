@@ -36,3 +36,27 @@ export const deletePost = async (
         setError(error.response.data.errors);
     }
 };
+
+export const getPost = async (setPost, id) => {
+    try {
+        const response = await axios.get(`/post/getPost/${id}`, {
+            headers: {
+                "Content-type": "application/json",
+            },
+        });
+
+        setPost(response.data.post);
+    } catch (error) {}
+};
+
+export const getAllComments = async (id, setPost) => {
+    try {
+        const response = await axios.get(`/comment/${id}/getAll`, {
+            headers: {
+                "Content-type": "application/json",
+            },
+        });
+
+        setPost(response.data.comments);
+    } catch (error) {}
+};

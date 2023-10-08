@@ -9,6 +9,7 @@ export const useAuth = () => {
 
 export const DataProvider = ({ children }) => {
     const [userDetails, setUserDetails] = useState({});
+    const [postDetails, sendPostDetails] = useState({});
 
     useEffect(() => {
         const getUser = async () => {
@@ -32,6 +33,8 @@ export const DataProvider = ({ children }) => {
         <DataContext.Provider
             value={{
                 userDetails,
+                postDetails,
+                sendPostDetails,
             }}
         >
             {children}
