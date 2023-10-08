@@ -15,6 +15,7 @@ import { useParams } from "react-router-dom";
 import { getPost, getAllComments } from "../api";
 import AddComment from "../comment/add/AddComment";
 import Comment from "../comment/Comment";
+import { generateTime } from "../time";
 
 const PostView = () => {
     const [show, setShow] = useState(false);
@@ -35,7 +36,12 @@ const PostView = () => {
 
                 <PostViewBody>
                     <PostViewTitle>
-                        {post.title} {"( " + post.createdAt + " ago )"}
+                        {post.title}{" "}
+                        {"( " +
+                            generateTime(post.createdAt).newTimeDiff +
+                            " " +
+                            generateTime(post.createdAt).timeName +
+                            " ago )"}
                     </PostViewTitle>
                     <PostViewDescription>
                         {post.description}
@@ -54,6 +60,7 @@ const PostView = () => {
                                 key={index}
                                 name={el.name}
                                 comment={el.commentText}
+                                time={el.createdAt}
                             />
                         ))}
                     </PostCommentsContainer>

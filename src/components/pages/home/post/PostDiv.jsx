@@ -12,6 +12,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { deletePost } from "../api";
 import AddPost from "./add/AddPost";
 import { useAuth } from "../../../context/Context";
+import { generateTime } from "../time";
 
 const PostDiv = ({
     user,
@@ -66,9 +67,11 @@ const PostDiv = ({
                     <div className="comment_head_left">
                         <div className="commeter_name">{name}</div>
                         <div className="commented_time">
-                            {(new Date() - new Date(time)) /
-                                (60 * 60 * 60 * 60 * 24)}
-                            min ago
+                            {generateTime(time).newTimeDiff +
+                                " " +
+                                generateTime(time).timeName +
+                                " "}
+                            ago
                         </div>
                     </div>
                 </PostHead>
