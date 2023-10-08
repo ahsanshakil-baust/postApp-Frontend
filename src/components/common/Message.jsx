@@ -6,10 +6,10 @@ const Alert = styled.div`
     right: 0,
     top: -30px,
     width: 100%,
-    fontSize: 12px !important,
+    font-size: 12px,
     padding: 5px 10px,
-    textAlign: center,
-    zIndex: 10,
+    text-align: center,
+    z-index: 10,
 `;
 
 const Message = ({ error, processingMsg, successMsg }) => {

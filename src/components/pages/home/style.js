@@ -210,7 +210,7 @@ export const PostViewWrapper = styled.div`
     width: 900px;
     margin: 10px 0;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 991px) {
         width: 100%;
     }
 `;
@@ -310,6 +310,10 @@ export const PostReplyIcon = styled.i`
     cursor: pointer;
 `;
 
-export const PostCommentsContainer = styled.div``;
-
-export const PostCommentBox = styled.div``;
+export const PostCommentsContainer = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+`;

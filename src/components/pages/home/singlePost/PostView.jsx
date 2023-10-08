@@ -6,7 +6,6 @@ import {
     PostViewDescription,
     PostViewWrapper,
     PostCommentsContainer,
-    PostCommentBox,
     PostViewFooter,
     PostReplyIcon,
     PostViewImage,
@@ -15,6 +14,7 @@ import {
 import { useParams } from "react-router-dom";
 import { getPost, getAllComments } from "../api";
 import AddComment from "../comment/add/AddComment";
+import Comment from "../comment/Comment";
 
 const PostView = () => {
     const [show, setShow] = useState(false);
@@ -28,9 +28,6 @@ const PostView = () => {
         getAllComments(id, setComment);
     }, [id]);
 
-    console.log(comment);
-
-    console.log(post);
     return (
         <PostViewContainer>
             <PostViewWrapper>
@@ -50,14 +47,20 @@ const PostView = () => {
                             title="reply"
                         />
                     </PostViewFooter>
+
+                    <PostCommentsContainer>
+                        {comment.map((el, index) => (
+                            <Comment
+                                key={index}
+                                name={el.name}
+                                comment={el.commentText}
+                            />
+                        ))}
+                    </PostCommentsContainer>
                 </PostViewBody>
             </PostViewWrapper>
 
             {show && <AddComment setShow={setShow} id={id} />}
-
-            <PostCommentsContainer>
-                <PostCommentBox></PostCommentBox>
-            </PostCommentsContainer>
         </PostViewContainer>
     );
 };

@@ -1,7 +1,13 @@
 import React from "react";
+import { CommentContainer, CommentText, CommenterName } from "./style";
 
-const Comment = () => {
-    return <div>Comment</div>;
+const Comment = ({ name, comment }) => {
+    return (
+        <CommentContainer>
+            <CommenterName>{name}</CommenterName>
+            <CommentText>{comment}</CommentText>
+        </CommentContainer>
+    );
 };
 
 export default Comment;
