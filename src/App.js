@@ -11,6 +11,7 @@ const LazyLogin = lazy(() => import("./components/pages/form/LoginForm"));
 const LazyPostView = lazy(() =>
     import("./components/pages/home/singlePost/PostView")
 );
+const LazyAbout = lazy(() => import("./components/pages/about/About"));
 
 const App = () => {
     const { userDetails } = useAuth();
@@ -37,6 +38,7 @@ const App = () => {
                         }
                     />
                     <Route path="/view-post/:id" element={<LazyPostView />} />
+                    <Route path="/about" element={<LazyAbout />} />
                 </Routes>
             </Suspense>
         </BrowserRouter>
