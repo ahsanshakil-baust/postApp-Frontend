@@ -38,7 +38,6 @@ const PostDiv = ({
     const handleDelete = (id, setSuccessMsg, setError, setProcessingMsg) => {
         if (userDetails.username) {
             deletePost(id, setSuccessMsg, setError, setProcessingMsg);
-            window.location.reload();
         } else {
             navigate("/login");
         }

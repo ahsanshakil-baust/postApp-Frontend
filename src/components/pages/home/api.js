@@ -20,6 +20,8 @@ export const deletePost = async (
     setProcessingMsg
 ) => {
     setProcessingMsg("Loading...");
+
+    console.log(id);
     try {
         await axios.delete(`${url}/post/delete/${id}`, {
             headers: {
@@ -32,6 +34,7 @@ export const deletePost = async (
 
         setProcessingMsg("");
         setSuccessMsg("Deleted Successfully !");
+        window.location.reload();
     } catch (error) {
         setProcessingMsg("");
         setError(error.response.data.errors);

@@ -28,13 +28,23 @@ const ConfirmDiv = styled.div`
     @media screen and (max-width: 1675px) {
         margin-left: 350px;
     }
+
     @media screen and (max-width: 1024px) {
         margin-left: 0;
+    }
+
+    @media screen and (max-width: 500px) {
+        width: 280px;
+        height: 150px;
     }
 `;
 const ConfirmText = styled.div`
     padding: 10px;
     font-size: 15px;
+
+    @media screen and (max-width: 500px) {
+        font-size: 13px;
+    }
 `;
 const ButtonsDiv = styled.div`
     padding: 1rem;
@@ -53,6 +63,15 @@ const ButtonsDiv = styled.div`
 
         &:last-child {
             background-color: #dc3545;
+        }
+    }
+
+    @media screen and (max-width: 500px) {
+        padding: 0.5rem;
+
+        button {
+            padding: 3px 16px;
+            font-size: 13px;
         }
     }
 `;
