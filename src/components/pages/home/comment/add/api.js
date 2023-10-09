@@ -11,7 +11,7 @@ export const addComment = async (
 ) => {
     setProcessingMsg("Loading...");
     try {
-        await axios.post(`${url}/comment/${id}/add`, JSON.stringify(comment), {
+        await axios.post(`/comment/${id}/add`, JSON.stringify(comment), {
             headers: {
                 "Content-type": "application/json",
             },

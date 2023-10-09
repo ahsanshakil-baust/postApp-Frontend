@@ -10,7 +10,7 @@ export const addNewPost = async (
 ) => {
     setProcessingMsg("Loading...");
     try {
-        await axios.post(`${url}/post/add`, JSON.stringify(post), {
+        await axios.post(`/post/add`, JSON.stringify(post), {
             headers: {
                 "Content-type": "application/json",
             },
@@ -39,7 +39,7 @@ export const UpdatePost = async (
 ) => {
     setProcessingMsg("Loading...");
     try {
-        await axios.patch(`${url}/post/update/${id}`, JSON.stringify(post), {
+        await axios.patch(`/post/update/${id}`, JSON.stringify(post), {
             headers: {
                 "Content-type": "application/json",
             },

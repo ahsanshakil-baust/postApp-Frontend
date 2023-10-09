@@ -2,8 +2,6 @@ import axios from "axios";
 
 const url = process.env.REACT_APP_URL;
 
-console.log(url);
-
 // Signup
 export const signUp = async (
     user,
@@ -18,7 +16,7 @@ export const signUp = async (
 
     setProcessingMsg("Processing...");
     try {
-        await axios.post(`${url}/user/signup`, JSON.stringify(user), {
+        await axios.post(`/user/signup`, JSON.stringify(user), {
             headers: {
                 "Content-type": "application/json",
             },
@@ -52,15 +50,11 @@ export const login = async (
 
     setProcessingMsg("Processing...");
     try {
-        const response = await axios.post(
-            `${url}/user/login`,
-            JSON.stringify(user),
-            {
-                headers: {
-                    "Content-type": "application/json",
-                },
-            }
-        );
+        const response = await axios.post(`/user/login`, JSON.stringify(user), {
+            headers: {
+                "Content-type": "application/json",
+            },
+        });
 
         setProcessingMsg("");
         console.log(response.data);

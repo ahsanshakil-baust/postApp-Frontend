@@ -4,7 +4,7 @@ const url = process.env.REACT_APP_URL;
 
 export const logOut = async () => {
     try {
-        await axios.delete(`${url}/user/logout`);
+        await axios.delete(`/user/logout`);
 
         window.location.href = "/login";
     } catch (error) {
