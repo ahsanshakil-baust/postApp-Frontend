@@ -1,4 +1,5 @@
 import axios from "axios";
+import Cookies from "js-cookie";
 import React, { useContext, useEffect, useState } from "react";
 
 const DataContext = React.createContext();
@@ -12,21 +13,12 @@ export const DataProvider = ({ children }) => {
     const [postDetails, sendPostDetails] = useState({});
 
     useEffect(() => {
-        const getUser = async () => {
-            try {
-                const response = await axios.get("/user", {
-                    headers: {
-                        "Content-type": "application/json",
-                    },
-                });
+        const user = Cookies.get("user");
 
-                setUserDetails(response.data);
-            } catch (error) {
-                console.log(error);
-            }
-        };
+        if (!user) return;
 
-        getUser();
+        const parsedObj = JSON.parse(user);
+        setUserDetails(parsedObj);
     }, []);
 
     return (

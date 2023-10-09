@@ -36,7 +36,7 @@ const PostDiv = ({
     const navigate = useNavigate();
 
     const handleDelete = (id, setSuccessMsg, setError, setProcessingMsg) => {
-        if (userDetails.user) {
+        if (userDetails.username) {
             deletePost(id, setSuccessMsg, setError, setProcessingMsg);
             window.location.reload();
         } else {
@@ -45,7 +45,7 @@ const PostDiv = ({
     };
 
     const handleEdit = () => {
-        userDetails.user ? setShow(true) : navigate("/login");
+        userDetails.username ? setShow(true) : navigate("/login");
     };
 
     const handleSendDetails = () => {
@@ -87,7 +87,7 @@ const PostDiv = ({
                 </PostTitle>
 
                 <PostMessage>{desc}</PostMessage>
-                {userDetails.user && userDetails.user.email === email && (
+                {userDetails.username && userDetails.email === email && (
                     <PostFooter>
                         <i
                             onClick={handleEdit}

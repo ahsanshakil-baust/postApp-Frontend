@@ -7,10 +7,10 @@ import { useAuth } from "../../../../context/Context";
 const AddPost = ({ setShow, title, desc, id }) => {
     const { userDetails } = useAuth();
     const [post, setPost] = useState({
-        user: userDetails.user.username,
+        user: userDetails.username,
         title: title ? title : "",
         description: desc ? desc : "",
-        email: userDetails.user.email,
+        email: userDetails.email,
         errorObj: {},
     });
 

@@ -13,6 +13,7 @@ export const FormWrapper = styled.div`
     left: 50%;
     transform: translateX(-50%);
     padding: 20px 40px;
+    z-index: 10;
 
     @media screen and (max-width: 480px) {
         padding: 10px 20px;

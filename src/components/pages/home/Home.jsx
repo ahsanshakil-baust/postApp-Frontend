@@ -23,7 +23,7 @@ const Home = () => {
     }, []);
 
     const handleAddPost = () => {
-        userDetails.user ? setShow(true) : navigate("/login");
+        userDetails.username ? setShow(true) : navigate("/login");
     };
 
     return (

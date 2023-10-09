@@ -31,20 +31,20 @@ const Navbar = () => {
             <li>
                 <NavLink to="/about">About</NavLink>
             </li>
-            {!userDetails.user && (
+            {!userDetails.username && (
                 <li>
                     <NavLink to="/signup">SignUp</NavLink>
                 </li>
             )}
-            {!userDetails.user && (
+            {!userDetails.username && (
                 <li>
                     <NavLink to="/login">Login</NavLink>
                 </li>
             )}
 
-            {userDetails.user && <li>{userDetails.user.username}</li>}
+            {userDetails.username && <li>{userDetails.username}</li>}
 
-            {userDetails.user && (
+            {userDetails.username && (
                 <li style={{ cursor: "pointer" }} onClick={logOut}>
                     logout
                 </li>
