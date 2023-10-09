@@ -22,3 +22,7 @@ Here, i used vercel for Frontend. one environmental verialble need to add while 
 REACT_APP_URL:"https://post-app-backend-y0al.onrender.com" 
 this is the backend server for this project.
 
+### Process
+
+First you have to signup then will get the access to make a new post.
+Any user can make a comment with their name , email and comment
