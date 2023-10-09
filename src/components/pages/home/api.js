@@ -1,8 +1,9 @@
 import axios from "axios";
+const url = process.env.REACT_APP_URL;
 
 export const getAllPosts = async (setPost) => {
     try {
-        const response = await axios.get("/post/getAll", {
+        const response = await axios.get(`${url}/post/getAll`, {
             headers: {
                 "Content-type": "application/json",
             },
@@ -20,7 +21,7 @@ export const deletePost = async (
 ) => {
     setProcessingMsg("Loading...");
     try {
-        await axios.delete(`/post/delete/${id}`, {
+        await axios.delete(`${url}/post/delete/${id}`, {
             headers: {
                 "Content-type": "application/json",
             },
@@ -39,7 +40,7 @@ export const deletePost = async (
 
 export const getPost = async (setPost, id) => {
     try {
-        const response = await axios.get(`/post/getPost/${id}`, {
+        const response = await axios.get(`${url}/post/getPost/${id}`, {
             headers: {
                 "Content-type": "application/json",
             },
@@ -51,7 +52,7 @@ export const getPost = async (setPost, id) => {
 
 export const getAllComments = async (id, setPost) => {
     try {
-        const response = await axios.get(`/comment/${id}/getAll`, {
+        const response = await axios.get(`${url}/comment/${id}/getAll`, {
             headers: {
                 "Content-type": "application/json",
             },

@@ -1,5 +1,7 @@
 import axios from "axios";
 
+const url = process.env.REACT_APP_URL;
+
 export const addComment = async (
     id,
     comment,
@@ -9,7 +11,7 @@ export const addComment = async (
 ) => {
     setProcessingMsg("Loading...");
     try {
-        await axios.post(`/comment/${id}/add`, JSON.stringify(comment), {
+        await axios.post(`${url}/comment/${id}/add`, JSON.stringify(comment), {
             headers: {
                 "Content-type": "application/json",
             },
