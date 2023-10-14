@@ -24,5 +24,5 @@ this is the backend server for this project.
 
 ### Process
 
-First you have to signup then will get the access to make a new post.
+First you have to signup then will get the access to make a new post, Update, Delete.
 Any user can make a comment with their name , email and comment
